@@ -127,7 +127,7 @@ public class HtmlPanel extends JComponent implements FrameContext {
 		}
 	}
 
-	private class SelectionDispatch extends EventDispatch2 {
+	private static class SelectionDispatch extends EventDispatch2 {
 
 		@Override
 		protected void dispatchEvent(EventListener listener, EventObject event) {
