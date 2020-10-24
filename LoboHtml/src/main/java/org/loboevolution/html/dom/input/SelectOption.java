@@ -114,7 +114,7 @@ public class SelectOption {
 		}
 		comboBox.setVisible(!modelNode.getHidden());
 		comboBox.applyComponentOrientation(direction(modelNode.getDir()));
-		comboBox.setEditable(Boolean.valueOf(modelNode.getContentEditable() == null ? "true" : modelNode.getContentEditable()));
+		comboBox.setEditable(Boolean.parseBoolean(modelNode.getContentEditable() == null ? "true" : modelNode.getContentEditable()));
 		comboBox.setEnabled(!modelNode.getDisabled());
 		this.list = list;
 		this.resetItemList(modelNode);

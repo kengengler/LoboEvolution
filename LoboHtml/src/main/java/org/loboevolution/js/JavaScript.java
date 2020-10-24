@@ -97,7 +97,7 @@ public class JavaScript {
 			} else if (javascriptObject instanceof String) {
 				return Integer.valueOf((String) javascriptObject);
 			} else if (javascriptObject instanceof Short) {
-				return (int) ((Short) javascriptObject).shortValue();
+				return (int) (Short) javascriptObject;
 			} else if (javascriptObject instanceof Long) {
 				return ((Long) javascriptObject).intValue();
 			} else if (javascriptObject instanceof Float) {

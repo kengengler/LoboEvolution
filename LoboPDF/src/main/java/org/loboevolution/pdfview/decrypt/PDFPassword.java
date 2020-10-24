@@ -142,7 +142,7 @@ public class PDFPassword {
                     // replace undefined chars with ?
                     new PDFDocEncodingByteGenerator((byte) '?'),
                     // just strip the higher 8 bits!
-                    password -> PDFStringUtil.asBytes(password),
+                    PDFStringUtil::asBytes,
                     // skip 2-byte chars
                     new IdentityEncodingByteGenerator(null),
                     // replace 2-byte chars with 0
