@@ -164,7 +164,7 @@ public class RBlockViewport extends BaseRCollection {
 		return rs == null ? RenderState.POSITION_STATIC : rs.getPosition();
 	}
 
-	private final void addAlignableAsBlock(HTMLElementImpl markupElement, RElement renderable) {
+	private void addAlignableAsBlock(HTMLElementImpl markupElement, RElement renderable) {
 		boolean regularAdd = false;
 		final String align = markupElement.getAttribute("align");
 		if (align != null) {
@@ -453,8 +453,8 @@ public class RBlockViewport extends BaseRCollection {
 		this.currentLine = addLine(startNode, line, newLineY);
 	}
 
-	private final void addPositionedRenderable(final BoundableRenderable renderable, final boolean verticalAlignable,
-			final boolean isFloat, final boolean isFixed) {
+	private void addPositionedRenderable(final BoundableRenderable renderable, final boolean verticalAlignable,
+										 final boolean isFloat, final boolean isFixed) {
 		SortedSet<PositionedRenderable> others = this.positionedRenderables;
 		if (others == null) {
 			others = new TreeSet<>(new ZIndexComparator());
@@ -650,7 +650,7 @@ public class RBlockViewport extends BaseRCollection {
 		}
 	}
 
-	private final void checkY(int y) {
+	private void checkY(int y) {
 		if (this.yLimit != -1 && y > this.yLimit) {
 			throw SEE;
 		}
@@ -659,7 +659,7 @@ public class RBlockViewport extends BaseRCollection {
 	/**
 	 * Gets offset from the left due to floats. It includes padding.
 	 */
-	private final int fetchLeftOffset(int newLineY) {
+	private int fetchLeftOffset(int newLineY) {
 		final Insets paddingInsets = this.paddingInsets;
 		final FloatingBounds floatBounds = this.floatBounds;
 		if (floatBounds == null) {
@@ -675,7 +675,7 @@ public class RBlockViewport extends BaseRCollection {
 	/**
 	 * Gets offset from the right due to floats. It includes padding.
 	 */
-	private final int fetchRightOffset(int newLineY) {
+	private int fetchRightOffset(int newLineY) {
 		final Insets paddingInsets = this.paddingInsets;
 		final FloatingBounds floatBounds = this.floatBounds;
 		if (floatBounds == null) {
@@ -1217,7 +1217,7 @@ public class RBlockViewport extends BaseRCollection {
 		}
 	}
 
-	private final void layoutFloat(BoundableRenderable renderable, boolean layout, boolean leftFloat) {
+	private void layoutFloat(BoundableRenderable renderable, boolean layout, boolean leftFloat) {
 		renderable.setOriginalParent(this);
 		if (layout) {
 			final int availWidth = this.availContentWidth;
@@ -1843,7 +1843,7 @@ public class RBlockViewport extends BaseRCollection {
 		}
 	}
 
-	private final void positionRBlock(HTMLElementImpl markupElement, RBlock renderable) {
+	private void positionRBlock(HTMLElementImpl markupElement, RBlock renderable) {
 		
 		RenderState rs = renderable.getModelNode().getRenderState();
 		int clear = rs.getClear();

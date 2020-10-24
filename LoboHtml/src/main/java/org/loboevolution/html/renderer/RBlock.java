@@ -223,7 +223,7 @@ public class RBlock extends BaseElementRenderable {
 		this.overflowY = this.defaultOverflowY;
 	}
 
-	private final boolean correctViewportOrigin(Insets insets, int blockWidth, int blockHeight) {
+	private boolean correctViewportOrigin(Insets insets, int blockWidth, int blockHeight) {
 		final RBlockViewport bodyLayout = this.bodyLayout;
 		final int viewPortX = bodyLayout.x;
 		final int viewPortY = bodyLayout.y;
@@ -384,9 +384,9 @@ public class RBlock extends BaseElementRenderable {
 	 * @param tentativeHeight
 	 * @return
 	 */
-	private final LayoutValue forceLayout(RenderState renderState, int availWidth, int availHeight, boolean expandWidth,
-			boolean expandHeight, FloatingBoundsSource blockFloatBoundsSource, int defaultOverflowX,
-			int defaultOverflowY, boolean sizeOnly) {
+	private LayoutValue forceLayout(RenderState renderState, int availWidth, int availHeight, boolean expandWidth,
+                                    boolean expandHeight, FloatingBoundsSource blockFloatBoundsSource, int defaultOverflowX,
+                                    int defaultOverflowY, boolean sizeOnly) {
 		RenderState rs = renderState;
 		if (rs == null) {
 			rs = new BlockRenderState(null);

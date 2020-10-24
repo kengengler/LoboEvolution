@@ -544,7 +544,7 @@ public abstract class BaseElementRenderable extends BaseRCollection
 		return dw;
 	}
 
-	private final int getDeclaredWidthImpl(RenderState renderState, int availWidth) {
+	private int getDeclaredWidthImpl(RenderState renderState, int availWidth) {
 		Object rootNode = this.modelNode;
 		if (rootNode instanceof HTMLElementImpl) {
 			HTMLElementImpl element = (HTMLElementImpl) rootNode;

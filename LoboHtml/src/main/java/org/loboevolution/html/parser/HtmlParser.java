@@ -220,8 +220,8 @@ public class HtmlParser {
 	 * @throws StopException
 	 * @throws SAXException
 	 */
-	private final int parseToken(final Node parent, final LineNumberReader reader, final Set<HTMLTag> stopTags,
-			final LinkedList<String> ancestors) throws IOException, StopException, SAXException {
+	private int parseToken(final Node parent, final LineNumberReader reader, final Set<HTMLTag> stopTags,
+                           final LinkedList<String> ancestors) throws IOException, StopException, SAXException {
 		final Document doc = this.document;
 		final HTMLDocumentImpl htmlDoc = (HTMLDocumentImpl) doc;
 		final StringBuilder textSb = this.readUpToTagBegin(reader);
@@ -431,7 +431,7 @@ public class HtmlParser {
 	 * Reads text until the beginning of the next tag. Leaves the reader offset past
 	 * the opening angle bracket. Returns null only on EOF.
 	 */
-	private final StringBuilder readUpToTagBegin(final LineNumberReader reader) throws IOException, SAXException {
+	private StringBuilder readUpToTagBegin(final LineNumberReader reader) throws IOException, SAXException {
 		StringBuilder sb = null;
 		int intCh;
 		while ((intCh = reader.read()) != -1) {
@@ -466,8 +466,8 @@ public class HtmlParser {
 	 * @return
 	 * @throws IOException
 	 */
-	private final int parseForEndTag(Node parent, final LineNumberReader reader, final String tagName,
-			final boolean addTextNode, final boolean decodeEntities) throws IOException, SAXException {
+	private int parseForEndTag(Node parent, final LineNumberReader reader, final String tagName,
+                               final boolean addTextNode, final boolean decodeEntities) throws IOException, SAXException {
 		final Document doc = this.document;
 		int intCh;
 		StringBuilder sb = new StringBuilder();
@@ -603,7 +603,7 @@ public class HtmlParser {
 	 * @param reader
 	 * @return
 	 */
-	private final String readTag(final Node parent, final LineNumberReader reader) throws IOException {
+	private String readTag(final Node parent, final LineNumberReader reader) throws IOException {
 		final StringBuilder sb = new StringBuilder();
 		int chInt;
 		chInt = reader.read();
@@ -732,7 +732,7 @@ public class HtmlParser {
 		return tag;
 	}
 
-	private final StringBuilder passEndOfComment(final LineNumberReader reader) throws IOException {
+	private StringBuilder passEndOfComment(final LineNumberReader reader) throws IOException {
 		if (this.justReadTagEnd) {
 			return new StringBuilder(0);
 		}
@@ -801,7 +801,7 @@ public class HtmlParser {
 		return sb;
 	}
 
-	private final String parseEndOfTag(final Reader reader) throws IOException {
+	private String parseEndOfTag(final Reader reader) throws IOException {
 		if (this.justReadTagEnd) {
 			return "";
 		}
@@ -828,7 +828,7 @@ public class HtmlParser {
 		return result.toString();
 	}
 
-	private final void passEndOfTag(final Reader reader) throws IOException {
+	private void passEndOfTag(final Reader reader) throws IOException {
 		if (this.justReadTagEnd) {
 			return;
 		}
@@ -852,7 +852,7 @@ public class HtmlParser {
 		}
 	}
 
-	private final StringBuilder readProcessingInstruction(final LineNumberReader reader) throws IOException {
+	private StringBuilder readProcessingInstruction(final LineNumberReader reader) throws IOException {
 		final StringBuilder pidata = new StringBuilder();
 		if (this.justReadTagEnd) {
 			return pidata;
@@ -866,7 +866,7 @@ public class HtmlParser {
 		return pidata;
 	}
 
-	private final boolean readAttribute(final LineNumberReader reader, final Element element)
+	private boolean readAttribute(final LineNumberReader reader, final Element element)
 			throws IOException, SAXException {
 		if (this.justReadTagEnd) {
 			return false;
@@ -1131,7 +1131,7 @@ public class HtmlParser {
 		return (einfo == null ? true : einfo.decodeEntities);
 	}
 
-	private final static StringBuilder entityDecode(final StringBuilder rawText) throws org.xml.sax.SAXException {
+	private static StringBuilder entityDecode(final StringBuilder rawText) throws org.xml.sax.SAXException {
 		int startIdx = 0;
 		StringBuilder sb = null;
 		for (;;) {
@@ -1183,7 +1183,7 @@ public class HtmlParser {
 		}
 	}
 
-	private final static int getEntityChar(final String spec) {
+	private static int getEntityChar(final String spec) {
 		Character c = (Character) HTMLEntities.ENTITIES.get(Entities.get(spec));
 		if (c == null) {
 			final String specTL = spec.toLowerCase();

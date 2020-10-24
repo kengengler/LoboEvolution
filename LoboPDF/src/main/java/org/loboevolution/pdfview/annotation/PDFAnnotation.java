@@ -33,9 +33,9 @@ public class PDFAnnotation{
 		// TODO 28.03.2012: add more annotation types
 		;
 		
-		private String definition; 
-		private int internalId;
-		private Class<?> className;
+		private final String definition;
+		private final int internalId;
+		private final Class<?> className;
 		private ANNOTATION_TYPE(String definition, int typeId, Class<?> className) {
 			this.definition = definition;
 			this.internalId = typeId;

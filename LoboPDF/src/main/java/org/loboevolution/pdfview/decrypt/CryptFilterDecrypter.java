@@ -39,11 +39,11 @@ import org.loboevolution.pdfview.PDFParseException;
 public class CryptFilterDecrypter implements PDFDecrypter {
 
     /** Maps from crypt filter names to their corresponding decrypters */
-    private Map<String, PDFDecrypter> decrypters;
+    private final Map<String, PDFDecrypter> decrypters;
     /** The default decrypter for stream content */
-    private PDFDecrypter defaultStreamDecrypter;
+    private final PDFDecrypter defaultStreamDecrypter;
     /** The default decrypter for string content */
-    private PDFDecrypter defaultStringDecrypter;
+    private final PDFDecrypter defaultStringDecrypter;
 
     /**
      * Class constructor

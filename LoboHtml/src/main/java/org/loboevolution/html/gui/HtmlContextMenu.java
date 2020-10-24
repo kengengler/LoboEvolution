@@ -58,10 +58,10 @@ import org.loboevolution.net.HttpNetwork;
 public class HtmlContextMenu {
 
 	/** The element. */
-	private HTMLElement element;
+	private final HTMLElement element;
 
 	/** The context. */
-	private HtmlRendererContext context;
+	private final HtmlRendererContext context;
 
 	/** The search. */
 	private static final String SEARCH = "/org/lobo/image/search.png";
