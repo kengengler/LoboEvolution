@@ -38,7 +38,7 @@ import org.loboevolution.pdfview.PDFObject;
  */
 public class Type1CFont extends OutlineFont {
 
-    String chr2name[] = new String[256];
+    String[] chr2name = new String[256];
 
     byte[] data;
 
@@ -52,11 +52,11 @@ public class Type1CFont extends OutlineFont {
 
     int stemhints = 0;
 
-    String names[];
+    String[] names;
 
-    int glyphnames[];
+    int[] glyphnames;
 
-    int encoding[] = new int[256];
+    int[] encoding = new int[256];
 
     String fontname;
 
@@ -350,7 +350,7 @@ public class Type1CFont extends OutlineFont {
     // and code encoding[i]
     int charstringtype = 2;
 
-    float temps[] = new float[32];
+    float[] temps = new float[32];
 
     int charsetbase = 0;
 
@@ -1040,7 +1040,7 @@ public class Type1CFont extends OutlineFont {
                     }
                     // x x x x i y y y -> y y y x x x x i (where i=3)
                     if (i > 0) {
-                        float roll[] = new float[n];
+                        float[] roll = new float[n];
                         System.arraycopy (this.stack, this.stackptr - 1 - i, roll, 0, i);
                         System.arraycopy (this.stack, this.stackptr - 1 - n, roll, i,
                                 n - i);

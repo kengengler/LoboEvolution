@@ -28,10 +28,10 @@ import java.util.Arrays;
  */
 public class HmtxTable extends TrueTypeTable {
     /** advance widths for any glyphs that have one */
-    short advanceWidths[];
+    short[] advanceWidths;
     
     /** left side bearings for each glyph */
-    short leftSideBearings[];
+    short[] leftSideBearings;
     
     /** Creates a new instance of HmtxTable */
     protected HmtxTable(TrueTypeFont ttf) {

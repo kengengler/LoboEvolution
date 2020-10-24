@@ -29,8 +29,8 @@ import org.loboevolution.pdfview.PDFObject;
  * @author Mike Wessler
  */
 public class CalGrayColor extends ColorSpace {
-    float white[]= {1f, 1f, 1f};
-    float black[]= {0, 0, 0};
+    float[] white = {1f, 1f, 1f};
+    float[] black = {0, 0, 0};
     float gamma= 1;
     static ColorSpace cie= ColorSpace.getInstance(ColorSpace.CS_sRGB);
 
@@ -85,14 +85,14 @@ public class CalGrayColor extends ColorSpace {
      * @return the RGB values (0-1)
      */
     @Override
-	public float[] toRGB(float comp[]) {
+	public float[] toRGB(float[] comp) {
 	if (comp.length==1) {
 	    float mul= (float)Math.pow(comp[0], this.gamma);
-	    float xyz[] = {
+	    float[] xyz = {
 		this.white[0]*mul,
 		0,
 		0};
-	    float rgb[]= cie.fromCIEXYZ(xyz);
+	    float[] rgb = cie.fromCIEXYZ(xyz);
 	    return rgb;
 	} else {
 	    return this.black;

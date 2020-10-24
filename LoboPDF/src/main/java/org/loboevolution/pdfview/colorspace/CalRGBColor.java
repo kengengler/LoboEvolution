@@ -49,10 +49,10 @@ public class CalRGBColor extends ColorSpace {
     float[] scale;
     float[] max;
     
-    float white[]= {1f, 1f, 1f};
-    float black[]= {0, 0, 0};
-    float matrix[]= {1f, 0, 0, 0, 1f, 0, 0, 0, 1f};
-    float gamma[]= {1f, 1f, 1f};
+    float[] white = {1f, 1f, 1f};
+    float[] black = {0, 0, 0};
+    float[] matrix = {1f, 0, 0, 0, 1f, 0, 0, 0, 1f};
+    float[] gamma = {1f, 1f, 1f};
 
     static ColorSpace rgbCS= ColorSpace.getInstance(ColorSpace.CS_sRGB);
     static ColorSpace cieCS= ColorSpace.getInstance(ColorSpace.CS_CIEXYZ);
@@ -132,7 +132,7 @@ public class CalRGBColor extends ColorSpace {
      * @return the RGB values (0-1)
      */
     @Override
-	public float[] toRGB(float comp[]) {
+	public float[] toRGB(float[] comp) {
 	if (comp.length==3) {
             // compute r', g' and b' by raising the given values to the
             // correct gamma

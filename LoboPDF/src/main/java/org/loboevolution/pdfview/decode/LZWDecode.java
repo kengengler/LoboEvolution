@@ -72,7 +72,7 @@ public class LZWDecode {
     ByteBuffer buf;
     int bytepos;
     int bitpos;
-    byte[] dict[] = new byte[4096][];
+    byte[][] dict = new byte[4096][];
     int dictlen = 0;
     int bitspercode = 9;
     static int STOP = 257;

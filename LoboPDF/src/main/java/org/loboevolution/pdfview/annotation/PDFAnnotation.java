@@ -36,7 +36,7 @@ public class PDFAnnotation{
 		private final String definition;
 		private final int internalId;
 		private final Class<?> className;
-		private ANNOTATION_TYPE(String definition, int typeId, Class<?> className) {
+		ANNOTATION_TYPE(String definition, int typeId, Class<?> className) {
 			this.definition = definition;
 			this.internalId = typeId;
 			this.className = className;
@@ -170,7 +170,7 @@ public class PDFAnnotation{
      */
     public Rectangle2D.Float parseRect(PDFObject obj) throws IOException {
         if (obj.getType() == PDFObject.ARRAY) {
-            PDFObject bounds[] = obj.getArray();
+            PDFObject[] bounds = obj.getArray();
             if (bounds.length == 4) {
                 return new Rectangle2D.Float(bounds[0].getFloatValue(),
                         bounds[1].getFloatValue(),

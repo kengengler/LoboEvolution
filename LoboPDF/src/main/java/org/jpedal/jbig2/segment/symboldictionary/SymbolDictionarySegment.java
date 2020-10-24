@@ -192,7 +192,7 @@ public class SymbolDictionarySegment extends Segment {
 			}
 		}
 
-		int deltaWidths[] = new int[noOfNewSymbols];
+		int[] deltaWidths = new int[noOfNewSymbols];
 
 		int deltaHeight = 0;
 		i = 0;
