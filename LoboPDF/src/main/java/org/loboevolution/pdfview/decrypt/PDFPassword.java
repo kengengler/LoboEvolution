@@ -142,12 +142,7 @@ public class PDFPassword {
                     // replace undefined chars with ?
                     new PDFDocEncodingByteGenerator(Byte.valueOf((byte) '?')),
                     // just strip the higher 8 bits!
-                    new PasswordByteGenerator() {
-                        @Override
-						public byte[] generateBytes(String password) {
-                            return PDFStringUtil.asBytes(password);
-                        }
-                    },
+                    password -> PDFStringUtil.asBytes(password),
                     // skip 2-byte chars
                     new IdentityEncodingByteGenerator(null),
                     // replace 2-byte chars with 0
