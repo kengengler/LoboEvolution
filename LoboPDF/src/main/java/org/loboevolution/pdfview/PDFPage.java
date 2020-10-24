@@ -72,7 +72,7 @@ public class PDFPage {
     */
     private final Cache cache;
     /** a map from image info to weak references to parsers that are active */
-    public Map<ImageInfo, WeakReference<?>> renderers;
+    public final Map<ImageInfo, WeakReference<?>> renderers;
     /** List of annotations for this page */
     private List<PDFAnnotation> annots;
 
@@ -730,7 +730,7 @@ public class PDFPage {
 * draw an image
 */
 class PDFImageCmd extends PDFCmd {
-    PDFImage image;
+    final PDFImage image;
 
     public PDFImageCmd(PDFImage image) {
         this.image = image;
@@ -746,7 +746,7 @@ class PDFImageCmd extends PDFCmd {
 * set the fill paint
 */
 class PDFFillPaintCmd extends PDFCmd {
-    PDFPaint p;
+    final PDFPaint p;
 
     public PDFFillPaintCmd(PDFPaint p) {
         this.p = p;
@@ -763,7 +763,7 @@ class PDFFillPaintCmd extends PDFCmd {
 * set the stroke paint
 */
 class PDFStrokePaintCmd extends PDFCmd {
-    PDFPaint p;
+    final PDFPaint p;
 
     public PDFStrokePaintCmd(PDFPaint p) {
         this.p = p;
@@ -780,7 +780,7 @@ class PDFStrokePaintCmd extends PDFCmd {
 * set the fill paint
 */
 class PDFFillAlphaCmd extends PDFCmd {
-    float a;
+    final float a;
 
     public PDFFillAlphaCmd(float a) {
         this.a = a;
@@ -797,7 +797,7 @@ class PDFFillAlphaCmd extends PDFCmd {
 * set the stroke paint
 */
 class PDFStrokeAlphaCmd extends PDFCmd {
-    float a;
+    final float a;
 
     public PDFStrokeAlphaCmd(float a) {
         this.a = a;
@@ -814,8 +814,8 @@ class PDFStrokeAlphaCmd extends PDFCmd {
 * set the shade paint
 */
 class PDFShadeCommand extends PDFCmd {
-    PDFPaint p;
-    Rectangle2D box;
+    final PDFPaint p;
+    final Rectangle2D box;
 
     PDFShadeCommand(PDFPaint p, Rectangle2D box) {
         this.p = p;

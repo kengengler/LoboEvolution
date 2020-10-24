@@ -21,7 +21,7 @@ public class InputColorPicker {
 	
 	private final HTMLInputElementImpl modelNode;
 	
-	JButton widget = new JButton("Choose Color");
+	final JButton widget = new JButton("Choose Color");
 
 	/**
 	 * <p>Constructor for InputColorPicker.</p>
