@@ -35,8 +35,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  * <p>About class.</p>
@@ -63,29 +61,6 @@ public class About extends JDialog {
 	private static final Dimension DLG_SIZE = new Dimension(440, 240);
 	private static final int DLG_POS_X = SCREEN_SIZE.width / 2 - DLG_SIZE.width / 2;
 	private static final int DLG_POS_Y = SCREEN_SIZE.height / 2 - DLG_SIZE.height / 2;
-
-	/**
-	 * Starten der Anwendung
-	 *
-	 * @param args the command line arguments
-	 */
-	public static void main(String args[]) {
-		try {
-			UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
-			About dlg = new About();
-			dlg.setSize(DLG_SIZE);
-			dlg.setLocation(DLG_POS_X, DLG_POS_Y);
-			dlg.setVisible(true);
-		} catch (ClassNotFoundException ex) {
-			ex.printStackTrace();
-		} catch (IllegalAccessException ex) {
-			ex.printStackTrace();
-		} catch (InstantiationException ex) {
-			ex.printStackTrace();
-		} catch (UnsupportedLookAndFeelException ex) {
-			ex.printStackTrace();
-		}
-	}
 
 	/**
 	 * <p>Constructor for About.</p>

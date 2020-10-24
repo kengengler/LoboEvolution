@@ -508,14 +508,11 @@ public class JBIG2ImageReader extends ImageReader {
 
 			decoder.decodeJBIG2(data);
 
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			logger.log(Level.SEVERE, e.getMessage(), e);
-		} catch (JBIG2Exception e) {
+		} catch (IOException | JBIG2Exception e) {
 			// TODO Auto-generated catch block
 			logger.log(Level.SEVERE, e.getMessage(), e);
 		}
 
-		readFile = true;
+        readFile = true;
 	}
 }

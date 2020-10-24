@@ -26,10 +26,7 @@ package org.loboevolution.html.gui;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.StringReader;
+import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
@@ -62,6 +59,7 @@ import org.loboevolution.net.HttpNetwork;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 /**
  * The HtmlPanel class is a Swing component that can render a HTML
@@ -613,10 +611,8 @@ public class HtmlPanel extends JComponent implements FrameContext {
 			} finally {
 				reader.close();
 			}
-		} catch (final java.io.IOException ioe) {
+		} catch (final IOException | SAXException ioe) {
 			throw new IllegalStateException("Unexpected condition.", ioe);
-		} catch (final org.xml.sax.SAXException se) {
-			throw new IllegalStateException("Unexpected condition.", se);
 		}
 	}
 	
