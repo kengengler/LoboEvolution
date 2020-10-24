@@ -577,9 +577,7 @@ public class RBlockViewport extends BaseRCollection {
 			final List<Renderable> renderables = this.seqRenderables;
 			if (renderables != null) {
 				final Insets insets = this.paddingInsets;
-				final int numRenderables = renderables.size();
-				for (int i = 0; i < numRenderables; i++) {
-					final Object r = renderables.get(i);
+				for (final Object r : renderables) {
 					if (r instanceof BoundableRenderable) {
 						final BoundableRenderable seqRenderable = (BoundableRenderable) r;
 						final int y = seqRenderable.getY();
@@ -640,9 +638,7 @@ public class RBlockViewport extends BaseRCollection {
 				// vertically aligned
 				final Set<PositionedRenderable> others = this.positionedRenderables;
 				if (others != null) {
-					final Iterator<PositionedRenderable> i2 = others.iterator();
-					while (i2.hasNext()) {
-						final PositionedRenderable pr = (PositionedRenderable) i2.next();
+					for (PositionedRenderable pr : others) {
 						if (pr.isVerticalAlignable()) {
 							final BoundableRenderable br = pr.getRenderable();
 							final int newY = br.getY() + shift;
@@ -747,9 +743,7 @@ public class RBlockViewport extends BaseRCollection {
 	public int getFirstBaselineOffset() {
 		final List<Renderable> renderables = this.seqRenderables;
 		if (renderables != null) {
-			final Iterator<Renderable> i = renderables.iterator();
-			while (i.hasNext()) {
-				final Object r = i.next();
+			for (Object r : renderables) {
 				if (r instanceof RLine) {
 					final int blo = ((RLine) r).getBaselineOffset();
 					if (blo != 0) {
@@ -758,7 +752,7 @@ public class RBlockViewport extends BaseRCollection {
 				} else if (r instanceof RBlock) {
 					final RBlock block = (RBlock) r;
 					if (block.getHeight() > 0) {
-                        final Insets insets = block.getInsetsMarginBorder(false, false);
+						final Insets insets = block.getInsetsMarginBorder(false, false);
 						final Insets paddingInsets = this.paddingInsets;
 						return block.getFirstBaselineOffset() + insets.top + (paddingInsets == null ? 0 : paddingInsets.top);
 					}
@@ -946,9 +940,7 @@ public class RBlockViewport extends BaseRCollection {
 		} else {
 			final ArrayList<PositionedRenderable> matches = new ArrayList<>();
 			// ArrayList "matches" keeps the order from "others".
-			final Iterator<PositionedRenderable> i = others.iterator();
-			while (i.hasNext()) {
-				final PositionedRenderable pr = i.next();
+			for (PositionedRenderable pr : others) {
 				if (pr.isFixed() || clipBounds.intersects(pr.getRenderable().getVisualBounds())) {
 					matches.add(pr);
 				}
@@ -1012,9 +1004,7 @@ public class RBlockViewport extends BaseRCollection {
 		final int shiftX = floatingInfo.getShiftX() + block.getX();
 		final int shiftY = floatingInfo.getShiftY() + block.getY();
 		final ExportableFloat[] floats = (ExportableFloat[])floatingInfo.getFloats();
-		final int length = floats.length;
-		for (int i = 0; i < length; i++) {
-			final ExportableFloat ef = floats[i];
+		for (final ExportableFloat ef : floats) {
 			importFloat(ef, shiftX, shiftY);
 		}
 	}
@@ -1142,9 +1132,8 @@ public class RBlockViewport extends BaseRCollection {
 		final Collection<?> delayedPairs = container.getDelayedPairs();
 		if (delayedPairs != null && delayedPairs.size() > 0) {
 			// Add positioned renderables that belong here
-			final Iterator<?> i = delayedPairs.iterator();
-			while (i.hasNext()) {
-				final DelayedPair pair = (DelayedPair) i.next();
+			for (Object delayedPair : delayedPairs) {
+				final DelayedPair pair = (DelayedPair) delayedPair;
 				if (pair.getContainingBlock() == container) {
 					importDelayedPair(pair);
 				}
@@ -1183,9 +1172,7 @@ public class RBlockViewport extends BaseRCollection {
 		final SortedSet<PositionedRenderable> posRenderables = this.positionedRenderables;
 		if (posRenderables != null) {
 			final boolean isFloatLimit = isFloatLimit();
-			final Iterator<PositionedRenderable> i = posRenderables.iterator();
-			while (i.hasNext()) {
-				final PositionedRenderable pr = (PositionedRenderable) i.next();
+			for (PositionedRenderable pr : posRenderables) {
 				final BoundableRenderable br = pr.getRenderable();
 				if (br.getX() + br.getWidth() > this.maxX) {
 					this.maxX = br.getX() + br.getWidth();
@@ -1550,9 +1537,7 @@ public class RBlockViewport extends BaseRCollection {
 		final Collection<RFloatInfo> pfs = this.pendingFloats;
 		if (pfs != null) {
 			this.pendingFloats = null;
-			final Iterator<RFloatInfo> i = pfs.iterator();
-			while (i.hasNext()) {
-				final RFloatInfo pf = (RFloatInfo) i.next();
+			for (RFloatInfo pf : pfs) {
 				placeFloat(pf.getRenderable(), yAfterLine, pf.isLeftFloat());
 			}
 		}
@@ -1738,7 +1723,7 @@ public class RBlockViewport extends BaseRCollection {
 	 * 
 	 * @param element
 	 * @param y         The desired top position of the float element.
-	 * @param floatType -1 (left) or +1 (right)
+	 * @param leftFloat -1 (left) or +1 (right)
 	 */
 	private void placeFloat(BoundableRenderable element, int y, boolean leftFloat) {
 		final Insets insets = this.paddingInsets;
