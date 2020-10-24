@@ -1038,7 +1038,7 @@ public class RBlockViewport extends BaseRCollection {
 			fl = isFloatLimitImpl();
 			this.isFloatLimit = fl;
 		}
-		return fl.booleanValue();
+		return fl;
 	}
 
 	private Boolean isFloatLimitImpl() {

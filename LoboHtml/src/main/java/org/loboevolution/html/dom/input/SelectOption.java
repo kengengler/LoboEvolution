@@ -216,22 +216,22 @@ public class SelectOption {
 						if (selectedIndexes == null) {
 							selectedIndexes = new LinkedList<Integer>();
 						}
-						selectedIndexes.add(Integer.valueOf(index));
+						selectedIndexes.add(index);
 					}
 					if (option.getDefaultSelected()) {
 						if (defaultSelectedIndexes == null) {
 							defaultSelectedIndexes = new LinkedList<Integer>();
 						}
-						defaultSelectedIndexes.add(Integer.valueOf(index));
+						defaultSelectedIndexes.add(index);
 					}
 				}
 				if (ArrayUtilities.isNotBlank(selectedIndexes)) {
 					for (Integer si : selectedIndexes) {
-						list.addSelectionInterval(si.intValue(), si.intValue());
+						list.addSelectionInterval(si, si);
 					}
 				} else if (ArrayUtilities.isNotBlank(defaultSelectedIndexes)) {
 					for (Integer si : defaultSelectedIndexes) {
-						list.addSelectionInterval(si.intValue(), si.intValue());
+						list.addSelectionInterval(si, si);
 					}
 				}
 			}
