@@ -603,13 +603,10 @@ public class HtmlPanel extends JComponent implements FrameContext {
 	public void setHtml(String htmlSource, String uri, HtmlRendererContext rcontext) {
 		try {
 			final DocumentBuilderImpl builder = new DocumentBuilderImpl(rcontext.getUserAgentContext(), rcontext);
-			final Reader reader = new StringReader(htmlSource);
-			try {
+			try (Reader reader = new StringReader(htmlSource)) {
 				final InputSourceImpl is = new InputSourceImpl(reader, uri);
 				final Document document = builder.parse(is);
 				setDocument(document, rcontext);
-			} finally {
-				reader.close();
 			}
 		} catch (final IOException | SAXException ioe) {
 			throw new IllegalStateException("Unexpected condition.", ioe);
