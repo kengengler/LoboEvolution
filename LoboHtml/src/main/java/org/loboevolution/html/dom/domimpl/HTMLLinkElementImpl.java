@@ -226,7 +226,7 @@ public class HTMLLinkElementImpl extends HTMLAbstractUIElement implements HTMLLi
 							if (sheet != null) {
 								this.styleSheet = sheet;
 								if (sheet instanceof CSSStyleSheetImpl) {
-									final CSSStyleSheetImpl sheetImpl = (CSSStyleSheetImpl) sheet;
+									final CSSStyleSheetImpl sheetImpl = sheet;
 									sheetImpl.setDisabled(this.disabled);
 								} else {
 									if (isAltStyleSheet) {
