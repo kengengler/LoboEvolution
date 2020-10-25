@@ -218,7 +218,6 @@ public class MenuBar extends JMenuBar {
 	 *
 	 * @param title       the title
 	 * @param mnemonic    the mnemonic
-	 * @param accelerator the accelerator
 	 * @param action      the action
 	 * @return the j menu item
 	 */
